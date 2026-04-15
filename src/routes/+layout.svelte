@@ -8,5 +8,5 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<ModeWatcher track modeStorageKey="theme" />
+<ModeWatcher defaultMode="dark" modeStorageKey="theme" />
 {@render children?.()}
