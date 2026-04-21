@@ -1,8 +1,11 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { zod4 } from 'sveltekit-superforms/adapters';
 
+import { api, ApiError } from '$lib/api/api';
 import { loginSchema } from '$lib/schemas/auth/login';
+import { setAuthCookie } from '$lib/server/auth';
+import { message, setError, setMessage } from 'sveltekit-superforms';
 import type { Actions } from './$types';
 
 // LOAD — inisialisasi form kosong
@@ -11,26 +14,38 @@ export const load = async () => {
 	return { form };
 };
 
-export const actions: Actions = {
-	default: async ({ request }) => {
-		// Parse + validasi data dari request
+export const actions = {
+	login: async ({ request, cookies }) => {
 		const form = await superValidate(request, zod4(loginSchema));
 
-		// Jika gagal validasi, kembalikan error ke client
 		if (!form.valid) {
 			return fail(400, { form });
 		}
 
-		// ✅ Data valid — proses login di sini
 		const { email, password } = form.data;
-		console.log('Login attempt:', email, password);
+		type formDataType = keyof typeof form.data;
 
-		// Contoh: cek ke database, set session, dll
-		// const user = await db.user.findUnique({ where: { email } });
-		// if (!user || !verifyPassword(password, user.hash)) {
-		//   return setError(form, 'email', 'Email atau password salah');
-		// }
+		try {
+			const { message: msg, data } = await api.post<{ token: string }>('/auth/login', {
+				email,
+				password
+			});
 
-		redirect(302, '/dashboard');
+			if (!data) throw new ApiError('Token is missing');
+			setAuthCookie(cookies, data.token);
+
+			return setMessage(form, msg);
+		} catch (error) {
+			if (error instanceof ApiError) {
+				if (error.fields) {
+					for (const [field, message] of Object.entries(error.fields)) {
+						setError(form, field as formDataType, message);
+					}
+				}
+
+				return message(form, error.message, { status: 400 });
+			}
+			return message(form, 'An unexpected error occurred', { status: 500 });
+		}
 	}
-};
+} satisfies Actions;

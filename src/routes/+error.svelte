@@ -9,6 +9,9 @@
 			<p class="text-muted-foreground">
 				{page.error?.message}
 			</p>
+			<p class="bg-muted p-1 text-xs text-muted-foreground rounded">
+				{page.error?.errorId}
+			</p>
 		</div>
 	</div>
 </div>

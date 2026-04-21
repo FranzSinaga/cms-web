@@ -14,6 +14,9 @@ importers:
       mode-watcher:
         specifier: ^1.1.0
         version: 1.1.0(svelte@5.55.3(@typescript-eslint/types@8.58.2))
+      svelte-french-toast:
+        specifier: ^1.2.0
+        version: 1.2.0(svelte@5.55.3(@typescript-eslint/types@8.58.2))
       zod:
         specifier: ^4.3.6
         version: 4.3.6
@@ -1560,6 +1563,11 @@ packages:
       svelte:
         optional: true
 
+  svelte-french-toast@1.2.0:
+    resolution: {integrity: sha512-5PW+6RFX3xQPbR44CngYAP1Sd9oCq9P2FOox4FZffzJuZI2mHOB7q5gJBVnOiLF5y3moVGZ7u2bYt7+yPAgcEQ==}
+    peerDependencies:
+      svelte: ^3.57.0 || ^4.0.0
+
   svelte-toolbelt@0.10.6:
     resolution: {integrity: sha512-YWuX+RE+CnWYx09yseAe4ZVMM7e7GRFZM6OYWpBKOb++s+SQ8RBIMMe+Bs/CznBMc0QPLjr+vDBxTAkozXsFXQ==}
     engines: {node: '>=18', pnpm: '>=8.7.0'}
@@ -1577,6 +1585,11 @@ packages:
     engines: {node: '>=18', pnpm: '>=8.7.0'}
     peerDependencies:
       svelte: ^5.0.0
+
+  svelte-writable-derived@3.1.1:
+    resolution: {integrity: sha512-w4LR6/bYZEuCs7SGr+M54oipk/UQKtiMadyOhW0PTwAtJ/Ai12QS77sLngEcfBx2q4H8ZBQucc9ktSA5sUGZWw==}
+    peerDependencies:
+      svelte: ^3.2.1 || ^4.0.0-next.1 || ^5.0.0-next.94
 
   svelte@5.55.3:
     resolution: {integrity: sha512-dS1N+i3bA1v+c4UDb750MlN5vCO82G6vxh8HeTsPsTdJ1BLsN1zxSyDlIdBBqUjqZ/BxEwM8UrFf98aaoVnZFQ==}
@@ -3077,6 +3090,11 @@ snapshots:
     optionalDependencies:
       svelte: 5.55.3(@typescript-eslint/types@8.58.2)
 
+  svelte-french-toast@1.2.0(svelte@5.55.3(@typescript-eslint/types@8.58.2)):
+    dependencies:
+      svelte: 5.55.3(@typescript-eslint/types@8.58.2)
+      svelte-writable-derived: 3.1.1(svelte@5.55.3(@typescript-eslint/types@8.58.2))
+
   svelte-toolbelt@0.10.6(@sveltejs/kit@2.57.1(@sveltejs/vite-plugin-svelte@7.0.0(svelte@5.55.3(@typescript-eslint/types@8.58.2))(vite@8.0.8(@types/node@24.12.2)(jiti@2.6.1)))(svelte@5.55.3(@typescript-eslint/types@8.58.2))(typescript@6.0.2)(vite@8.0.8(@types/node@24.12.2)(jiti@2.6.1)))(svelte@5.55.3(@typescript-eslint/types@8.58.2)):
     dependencies:
       clsx: 2.1.1
@@ -3097,6 +3115,10 @@ snapshots:
       clsx: 2.1.1
       runed: 0.23.4(svelte@5.55.3(@typescript-eslint/types@8.58.2))
       style-to-object: 1.0.14
+      svelte: 5.55.3(@typescript-eslint/types@8.58.2)
+
+  svelte-writable-derived@3.1.1(svelte@5.55.3(@typescript-eslint/types@8.58.2)):
+    dependencies:
       svelte: 5.55.3(@typescript-eslint/types@8.58.2)
 
   svelte@5.55.3(@typescript-eslint/types@8.58.2):
