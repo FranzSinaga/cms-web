@@ -5,4 +5,4 @@
 </script>
 
 <p>This is homepage</p>
-<p>{JSON.stringify(data, undefined, 2)}</p>
+<pre class="bg-muted p-2 text-muted-foreground text-wrap">{JSON.stringify(data, null, 2)}</pre>

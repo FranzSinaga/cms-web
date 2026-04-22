@@ -14,3 +14,10 @@ export function setAuthCookie(cookies: Cookies, token: string): void {
 		maxAge: COOKIE_MAX_AGE
 	});
 }
+
+/**
+ * Clear auth token cookie
+ */
+export function clearAuthCookie(cookies: Cookies): void {
+	cookies.delete(AUTH_COOKIE_NAME, { path: '/' });
+}
