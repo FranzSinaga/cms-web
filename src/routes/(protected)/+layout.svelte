@@ -9,7 +9,7 @@
 	class="bg-sidebar"
 	style="--sidebar-width: calc(var(--spacing) * 72); --header-height: calc(var(--spacing) * 12);"
 >
-	<AppSidebar variant="inset" />
+	<AppSidebar />
 	<Sidebar.Inset>
 		<NavHeader />
 		<main class="w-full bg-background px-4">
@@ -21,8 +21,5 @@
 				</div>
 			</div>
 		</main>
-		<!-- <main class="px-4 pt-4 w-full bg-background">
-			<div class="px-4">{@render children?.()}</div>
-		</main> -->
 	</Sidebar.Inset>
 </Sidebar.Provider>
