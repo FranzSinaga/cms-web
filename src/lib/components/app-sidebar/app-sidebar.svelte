@@ -49,7 +49,7 @@
 					{#snippet child({ props })}
 						<a href={resolve('/')} {...props}>
 							<Spaces class="!size-5" />
-							<span class="text-base font-semibold">Zepew Inc.</span>
+							<span class="text-base font-semibold">Zepew Cms.</span>
 						</a>
 					{/snippet}
 				</Sidebar.MenuButton>
