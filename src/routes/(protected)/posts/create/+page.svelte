@@ -1,5 +1,7 @@
 <script lang="ts">
+	import Editor from '$lib/components/editor-two/editor.svelte';
 	import BlockEditorList from '$lib/components/editor/block-editor-list.svelte';
+	import Note from '$lib/components/editor/note.svelte';
 	// import Editor from '$lib/components/editor/editor.svelte';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
@@ -49,3 +51,5 @@
 		/>
 	</fieldset>
 </form>
+
+<Editor />
